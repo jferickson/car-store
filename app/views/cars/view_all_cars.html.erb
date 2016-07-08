@@ -1,0 +1,8 @@
+<h1>All Cars</h1>
+
+ <% @cars.each do |car| %>
+<p><%= car.name %></p>
+<p><%= car.price %></p>
+<p><%= car.description %></p>
+<img src = <%= car.image %> >
+<% end %>
