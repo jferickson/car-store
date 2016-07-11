@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get '/toyota' => 'cars#toyota_information'
-  get '/mazda' => 'cars#mazda_information'
-  get '/honda' => 'cars#honda_information'
-  get '/porshe' => 'cars#porshe_information'
+
+  get '/car/:id' => 'cars#car_information'
   get '/all_cars' => 'cars#all_cars_information'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
