@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
-  get '/car/:id' => 'cars#car_information'
-  get '/all_cars' => 'cars#all_cars_information'
+  get '/cars' => 'cars#index'
+  get '/cars/new' => 'cars#new'
+  post '/cars' => 'cars#create'
+  get '/cars/:id' => 'cars#show'
+  get '/cars/:id/edit' => 'cars#edit'
+  patch '/cars/:id' => 'cars#update'
+  delete 'cars/:id' => 'cars#destroy'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

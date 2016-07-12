@@ -1,5 +1,5 @@
 <% @cars.each do |car| %>
-<a href = "/car/<%= car.id %>"><p><%= car.name %></p></a>
+<a href = "/cars/<%= car.id %>"><p><%= car.name %></p></a>
 <p><%= car.price %></p>
 <p><%= car.description %></p>
 <img src = <%= car.image %> >

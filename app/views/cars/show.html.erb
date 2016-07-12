@@ -1,0 +1,14 @@
+<h1>Car Information</h1>
+<p><%= @car.name %></p>
+<p><%= @car.price %></p>
+<p><%= @car.description %></p>
+<img src = <%= @car.image %> >
+<div>
+  <a href="/cars">Back to all cars</a>
+</div>
+<div>
+  <a href="/cars/<%= @car.id %>/edit">Edit this car</a>
+</div>
+<div>
+ <%= link_to "Delete this car", "/cars/#{@car.id}", method: :delete %>
+ </div>
