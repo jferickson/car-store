@@ -10,6 +10,7 @@ class CarsController < ApplicationController
   end
 
   def create
+
     car = Car.new(
       name: params['name'],
       price: params['price'],
@@ -17,7 +18,8 @@ class CarsController < ApplicationController
       description: params['description']
       )
     car.save
-    render 'create.html.erb'
+    flash[:success] = "success car created!"
+    redirect_to "/cars/#{car.id}"
   end
 
   def show
@@ -38,13 +40,14 @@ class CarsController < ApplicationController
       image: params['image'],
       description: params['description']
     )
-    render 'update.html.erb'
+    flash[:success] = "success car updated!"
+    redirect_to "/cars/#{@car.id}"
   end
 
    def destroy
      @car = Car.find_by(id: params[:id])
      @car.destroy
-     render 'destroy.html.erb'
+     redirect_to "/cars"
    end
   
 end

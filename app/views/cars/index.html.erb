@@ -1,6 +1,14 @@
+<h1>All Cars</h1>
+<div class="row">
 <% @cars.each do |car| %>
+<div>
+<div class="col-md-4">
+<div class="well">
 <a href = "/cars/<%= car.id %>"><p><%= car.name %></p></a>
 <p><%= car.price %></p>
 <p><%= car.description %></p>
-<img src = <%= car.image %> >
+<img src = <%= car.image %> height = "300" width = "300">
+</div>
+</div>
 <% end %>
+</div>
