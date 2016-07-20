@@ -1,10 +1,14 @@
 <div>
 <h1>Car Information</h1>
 <p><%= @car.name %></p>
+<p><%= @car.supplier.name %></p>
 <p><%= @car.price %></p>
 <p><%= @car.description %></p>
 <p><%= @car.sale_message %></p>
-<img src = <%= @car.image %> height = "300" width = "300" >
+
+<% @car.images.each do |car_image| %>
+<img src = <%= car_image.url %> height = "300" width = "300" >
+<% end %>
 </div>
 <div>
   <a href="/cars">Back to all cars</a>

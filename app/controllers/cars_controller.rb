@@ -1,8 +1,14 @@
 class CarsController < ApplicationController
   
   def index
-    @cars = Car.all
-    render 'index.html.erb'
+    tier_attribute = params[:tier]
+    if tier_attribute == "discount"
+      @cars = Car.where("price < ?", 30000)
+    else
+      sort_attribute = params[:sort]
+      @cars = Car.order(sort_attribute)
+      render 'index.html.erb'
+    end
   end
 
   def new

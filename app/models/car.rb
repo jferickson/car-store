@@ -1,4 +1,6 @@
 class Car < ActiveRecord::Base
+  belongs_to :supplier
+  has_many :images
   def sale_message
     if price.to_f < 2000
       message = "Discount item!"

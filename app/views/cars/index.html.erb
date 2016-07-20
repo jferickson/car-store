@@ -5,9 +5,9 @@
 <div class="col-md-4">
 <div class="well">
 <a href = "/cars/<%= car.id %>"><p><%= car.name %></p></a>
-<p><%= car.price %></p>
+<p><%= number_to_currency(car.price) %></p>
 <p><%= car.description %></p>
-<img src = <%= car.image %> height = "300" width = "300">
+<img src = <%= car.images[0].url %> height = "300" width = "300">
 </div>
 </div>
 <% end %>
