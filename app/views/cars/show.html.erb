@@ -10,6 +10,19 @@
 <img src = <%= car_image.url %> height = "300" width = "300" >
 <% end %>
 </div>
+<%= form_tag "/orders", method: :post do %>
+<div>
+   <%= hidden_field_tag :product_id, @car.id %>
+ </div>
+  <div class="form-group">
+   <%= label_tag :quantity %>
+    <%= text_field_tag :quantity  %>
+  </div>
+
+  
+<%= submit_tag "Buy Now!", class: "btn btn-default" %>
+<% end %>
+
 <div>
   <a href="/cars">Back to all cars</a>
 </div>
