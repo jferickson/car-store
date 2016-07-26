@@ -5,14 +5,20 @@
 <p><%= @car.price %></p>
 <p><%= @car.description %></p>
 <p><%= @car.sale_message %></p>
-
+</div>
+<div>
+<% @car.categories.each do |category| %>
+<p><%= category.name %></p>
+<% end %>
+</div>
+<div>
 <% @car.images.each do |car_image| %>
 <img src = <%= car_image.url %> height = "300" width = "300" >
 <% end %>
 </div>
-<%= form_tag "/orders", method: :post do %>
+<%= form_tag "/carted_products", method: :post do %>
 <div>
-   <%= hidden_field_tag :product_id, @car.id %>
+   <%= hidden_field_tag :car_id, @car.id %>
  </div>
   <div class="form-group">
    <%= label_tag :quantity %>
@@ -20,7 +26,7 @@
   </div>
 
   
-<%= submit_tag "Buy Now!", class: "btn btn-default" %>
+<%= submit_tag "Add to Cart!", class: "btn btn-default" %>
 <% end %>
 
 <div>

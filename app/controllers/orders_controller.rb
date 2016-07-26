@@ -1,13 +1,20 @@
 class OrdersController < ApplicationController
   def create
+    order = Order.new(
+    user_id: current_user.id)
 
-    @order = Order.new(
-    quantity: params['quantity'],
-    user_id: current_user.id,
-    product_id: params['product_id'],
-    subtotal: Car.find_by(id: params['product_id']).price * params['quantity'].to_i
-    )
-    @order.save
-    render 'show.html.erb'
+    order.subtotal = order.calc_subtotal
+    order.tax = order.calc_tax
+    order.total = order.calc_total
+    order.save
+    #order.status_to_purchased
+    #flash[:success] = "Order successfully created"
+    order.status_to_purchased
+    redirect_to "/orders/#{order.id}"
   end
+
+   def show
+      @order = Order.find_by(id: params['id'])
+     render 'show.html.erb'
+   end
 end
